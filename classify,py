@@ -1,5 +1,3 @@
-#classify序列放入以物种命名的文件夹
-
 import os  #切换路径和创建文件夹
 import pandas as pd
 from tst import bad_val
