@@ -1,22 +1,20 @@
 #classify序列放入以物种命名的文件夹
 
-import os  # os是用来切换路径和创建文件夹的。
+import os  #切换路径和创建文件夹
 import pandas as pd
 from tst import bad_val
-from shutil import copy  # shutil 是用来复制黏贴文件的
+from shutil import copy  #复制粘贴贴文件
 df_E2a = pd.read_excel("E2a.xlsx")
 df_E2a.index = df_E2a['ab.']
 file_path = r'E:\新建文件夹\新建文件夹\db'  # 想拆分的文件夹所在路径,也就是一大堆文件所在的路径
 save_dir = r'E:\新建文件夹\新建文件夹\class'  # save_dir 是想把复制出来的文件存放在的路径
-'''
 
-'''
 
 # 获取 file_path 下的文件和文件夹列表
 # 因为 file_path 里面没有文件夹，所以不处理有文件夹的情况
 pathDir = os.listdir(file_path)  # os.listdir(file_path) 是获取指定路径下包含的文件或文件夹列表
 for filename in pathDir:  # 遍历pathDir下的所有文件filename
-    file_name = filename.split('.')[0]
+    file_name = filename.split('.')[0]  #去除后缀
 
     if file_name in bad_val:#找不到对应值
         full = '!Not found!'
