@@ -41,3 +41,13 @@ for filename in pathDir:
     if not os.path.isdir(to_path):  # 如果 to_path 目录不存在，则创建
         os.makedirs(to_path)
     copy(from_path, to_path)  # 完成复制黏贴
+
+#Add the Number of files to the folder's name  
+path0 = os.listdir(r'C:\Users\aklasim\Desktop\LAB\序列分割程序+结果\拟叶蠊py\2')
+for filen in path0:
+    path = r'C:\Users\aklasim\Desktop\LAB\序列分割程序+结果\拟叶蠊py\2\\'+filen  # 获取当前路径
+    count = 0
+    for root, dirs, files in os.walk(path):  # 遍历统计
+        for each in files:
+            count += 1  # 统计文件夹下文件个数
+    os.rename(path, path + ' ' + str(count) + '条')  # 输出结果
